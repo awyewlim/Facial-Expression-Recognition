@@ -2,6 +2,8 @@
 
 This repository is to build and train a convolutional neural network (CNN) in [Keras](https://keras.io/) from scratch to recognize facial expressions. The data consists of 48x48 pixel grayscale images of faces. The objective is to classify each face based on the emotion shown in the facial expression into one of seven categories (0=Angry, 1=Disgust, 2=Fear, 3=Happy, 4=Sad, 5=Surprise, 6=Neutral).
 
+Dataset : FER 2013 dataset
+
 ## Key Concept
 
 - Develop a facial expression recognition model in Keras
@@ -17,3 +19,9 @@ This repository is to build and train a convolutional neural network (CNN) in [K
 - Create Flask App to Serve Predictions
 - Design HTML Template for the Flask App
 - Use Model to Recognize Facial Expressions in Videos
+
+## Guide
+- Terminal Path --> cd \path\to\Project\
+- pip install pipenv
+- pipenv install
+- pipenv run python3 main.py
