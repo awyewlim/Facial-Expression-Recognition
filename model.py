@@ -3,7 +3,6 @@
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-import utils
 import os
 
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -14,15 +13,11 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
 from tensorflow.keras.utils import plot_model
 
-from IPython.display import SVG, Image
-from livelossplot import PlotLossesKerasTF
 import tensorflow as tf
 print("Tensorflow version:", tf.__version__)
 
 
-# Plot Sample Images
-
-utils.datasets.fer.plot_example_images(plt).show()
+# Show Number of Sample Images
 
 for expression in os.listdir("train/"):
     print(str(len(os.listdir("train/" + expression))) + " " + expression + " images")
@@ -35,20 +30,24 @@ batch_size = 64
 
 datagen_train = ImageDataGenerator(horizontal_flip=True)
 
-train_generator = datagen_train.flow_from_directory("train/",
-                                                    target_size=(img_size,img_size),
-                                                    color_mode="grayscale",
-                                                    batch_size=batch_size,
-                                                    class_mode='categorical',
-                                                    shuffle=True)
+train_generator = datagen_train.flow_from_directory(
+    "train/",
+    target_size=(img_size,img_size),
+    color_mode="grayscale",
+    batch_size=batch_size,
+    class_mode='categorical',
+    shuffle=True
+)
 
 datagen_validation = ImageDataGenerator(horizontal_flip=True)
-validation_generator = datagen_validation.flow_from_directory("test/",
-                                                    target_size=(img_size,img_size),
-                                                    color_mode="grayscale",
-                                                    batch_size=batch_size,
-                                                    class_mode='categorical',
-                                                    shuffle=False)
+validation_generator = datagen_validation.flow_from_directory(
+    "test/",
+    target_size=(img_size,img_size),
+    color_mode="grayscale",
+    batch_size=batch_size,
+    class_mode='categorical',
+    shuffle=False
+)
 
 
 # Create CNN Model
@@ -112,11 +111,9 @@ epochs = 15
 steps_per_epoch = train_generator.n//train_generator.batch_size
 validation_steps = validation_generator.n//validation_generator.batch_size
 
-reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.1,
-                              patience=2, min_lr=0.00001, mode='auto')
-checkpoint = ModelCheckpoint("model_weights.h5", monitor='val_accuracy',
-                             save_weights_only=True, mode='max', verbose=1)
-callbacks = [PlotLossesKerasTF(), checkpoint, reduce_lr]
+reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=2, min_lr=0.00001, mode='auto')
+checkpoint = ModelCheckpoint("model_weights.h5", monitor='val_accuracy', save_weights_only=True, mode='max', verbose=1)
+callbacks = [checkpoint, reduce_lr]
 
 history = model.fit(
     x=train_generator,
@@ -129,7 +126,6 @@ history = model.fit(
  
 
 # Represent Model as JSON String
-
 
 model_json = model.to_json()
 with open("model.json", "w") as json_file:
