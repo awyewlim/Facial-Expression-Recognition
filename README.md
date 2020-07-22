@@ -21,5 +21,5 @@ Dataset : FER 2013 dataset
 - Use Model to Recognize Facial Expressions in Videos
 
 ## Guide
-- Set **Terminal** Path to '''cd \path\to\Project\'''
-- Run 'python3 main.py'
+- Set **Terminal** Path to `cd \path\to\Project\`
+- Run `python3 main.py`
