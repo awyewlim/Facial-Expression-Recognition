@@ -1,5 +1,5 @@
 import cv2
-from FacialExpressionModel import FacialExpressionModel
+from fem import FacialExpressionModel
 import numpy as np
 
 facec = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
