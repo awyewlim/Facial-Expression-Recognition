@@ -21,7 +21,5 @@ Dataset : FER 2013 dataset
 - Use Model to Recognize Facial Expressions in Videos
 
 ## Guide
-- Terminal Path --> cd \path\to\Project\
-- pip install pipenv
-- pipenv install
-- pipenv run python3 main.py
+- Set **Terminal** Path to 'cd \path\to\Project\'
+- Run 'python3 main.py'
