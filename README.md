@@ -21,5 +21,6 @@ Dataset : FER 2013 dataset
 
 ## Guide
 1. Set **Terminal** Path to `cd \path\to\Project\`
-2. Run `model.py` to train model
-3. Run `main.py` to play
+2. Run `pip install -r requirements.txt` to install packages
+3. Run `python model.py` to train model
+4. Run `python main.py` to play
