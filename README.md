@@ -4,7 +4,7 @@ This repository is to build and train a convolutional neural network (CNN) in [K
 
 Dataset : FER 2013 dataset
 
-## Key Concept
+## Key Concepts
 - Develop a facial expression recognition model in Keras
 - Build and train a convolutional neural network (CNN)
 - Deploy the trained model to a web interface with [Flask](https://flask.palletsprojects.com/en/1.1.x/)
