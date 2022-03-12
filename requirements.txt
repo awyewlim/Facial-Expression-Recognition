@@ -53,7 +53,7 @@ pandocfilters==1.4.2
 parso==0.7.0
 pexpect==4.8.0 ; sys_platform != 'win32'
 pickleshare==0.7.5
-pillow==7.1.2
+pillow==9.0.1
 prometheus-client==0.7.1
 prompt-toolkit==3.0.5
 protobuf==3.12.0
